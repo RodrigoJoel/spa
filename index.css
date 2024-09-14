@@ -1,3 +1,4 @@
+ 
  .u-section-1 {
   background-image: none;
   min-height: 685px;
@@ -1995,4 +1996,51 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.comentarios-container {
+
+  font-family: 'Sofady One', cursive;
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.sofadi-one-regular {
+  font-family: "Sofadi One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.comentarios-slider {
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+
+.comentario {
+  font-family: 'Sofady One', cursive;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.comentario.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Opcional: Estilo para los botones de navegación */
+.navegacion-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+
+
+
 

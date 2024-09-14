@@ -1,20 +1,22 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-const port = 3000;
+document.addEventListener('DOMContentLoaded', function() {
+  const comentarios = document.querySelectorAll('.comentario');
+  let index = 0;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+  // Función para cambiar comentario
+  function mostrarComentario() {
+    // Ocultar el comentario actual
+    comentarios[index].classList.remove('active');
 
-app.post('/formulario', (req, res) => {
-  console.log('Datos recibidos:', req.body);
-  res.status(200).json({ message: 'Datos recibidos.' });
+    // Cambiar al siguiente comentario
+    index = (index + 1) % comentarios.length;
+
+    // Mostrar el nuevo comentario
+    comentarios[index].classList.add('active');
+  }
+
+  // Mostrar el primer comentario inicialmente
+  comentarios[index].classList.add('active');
+
+  // Cambiar comentario cada 3 segundos
+  setInterval(mostrarComentario, 3000);
 });
-
-app.listen(port, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${port}`);
-});
-app.get('/', (req, res) => {
-  res.send('Servidor funcionando');
-});
-
