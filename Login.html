@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+
     <style>
+        /* Estilo del body y fondo */
         body {
             font-family: Arial, sans-serif;
             background-image: url('spa fondo.jpg'); /* Ruta relativa a la imagen */
@@ -37,7 +40,7 @@
             text-decoration: underline;
         }
 
-        /* Estilo del contenedor principal */
+        /* Estilo del contenedor principal del login */
         .login-container {
             background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
             padding: 20px;
@@ -63,10 +66,10 @@
         .login-container input[type="text"],
         .login-container input[type="password"] {
             width: 100%;
-            padding: 10px;
+            padding: 5px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 2px;
         }
 
         .login-container button {
@@ -104,9 +107,62 @@
             backdrop-filter: blur(10px); /* Aplica el efecto de desenfoque */
             z-index: 1;
         }
+
+        /* Media queries para hacerlo responsivo */
+        @media (max-width: 1199px) {
+            .login-container {
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .login-container {
+                max-width: 300px;
+            }
+
+            .nav-bar a {
+                font-size: 0.9rem;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .login-container {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .nav-bar {
+                top: 5px;
+                right: 5px;
+            }
+
+            .nav-bar a {
+                font-size: 0.8rem;
+                margin: 0 5px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .login-container {
+                max-width: 85%;
+                padding: 10px;
+            }
+
+            .nav-bar {
+                top: 5px;
+                right: 5px;
+            }
+
+            .nav-bar a {
+                font-size: 0.75rem;
+                margin: 0 5px;
+            }
+        }
     </style>
 </head>
 <body>
+    
 
     <!-- Fondo borroso -->
     <div class="blur-background"></div>
@@ -125,6 +181,7 @@
         </form>
         <a href="/register" class="register-link">Recuperar contraseña</a>
     </div>
+
     <!-- Barra de navegación -->
     <div class="nav-bar">
         <a href="index.html#home">Home</a>
@@ -147,6 +204,8 @@
         <h1>Contacto</h1>
         <p>Contenido de la sección de contacto.</p>
     </section>
+
+
 
 </body>
 </html>
