@@ -152,8 +152,8 @@ app.use(bodyParser.json());
 
 require('dotenv').config();
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+const accountSid = 'ACab8a6ae0da531c8b4d4113621df604bc'; // Tu Account SID
+const authToken = '92059759ca94a69f60830ed392e439e3'; // Reemplaza con tu Auth Token
 const client = twilio(accountSid, authToken);
 const twilioNumber = 'whatsapp:+14155238886'; // Número de WhatsApp de Twilio
 
