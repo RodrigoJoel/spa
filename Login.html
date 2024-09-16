@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-
     <style>
         /* Estilo del body y fondo */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('spa fondo.jpg'); /* Ruta relativa a la imagen */
-            background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-            background-position: center; /* Centra la imagen de fondo */
+            background-image: url('spa fondo.jpg');
+            background-size: cover;
+            background-position: center;
             height: 100vh;
             margin: 0;
             display: flex;
@@ -21,12 +20,15 @@
             flex-direction: column;
         }
 
-        /* Estilo de la barra de navegación */
+        /* Estilo de la barra de navegación fija */
         .nav-bar {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: fixed; /* Para que se mantenga fija al hacer scroll */
+            top: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+            padding: 10px 20px;
             z-index: 20;
+            border-radius: 0 0 0 10px; /* Bordes redondeados solo en la esquina inferior izquierda */
         }
 
         .nav-bar a {
@@ -42,7 +44,7 @@
 
         /* Estilo del contenedor principal del login */
         .login-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -86,15 +88,10 @@
             background-color: #0056b3;
         }
 
-        .login-container .register-link {
-            display: block;
+        .login-container .error-message {
+            color: red;
             text-align: center;
             margin-top: 15px;
-            color: #007bff;
-        }
-
-        .login-container .register-link:hover {
-            text-decoration: underline;
         }
 
         /* Fondo borroso de la página */
@@ -132,11 +129,6 @@
                 padding: 15px;
             }
 
-            .nav-bar {
-                top: 5px;
-                right: 5px;
-            }
-
             .nav-bar a {
                 font-size: 0.8rem;
                 margin: 0 5px;
@@ -149,20 +141,42 @@
                 padding: 10px;
             }
 
-            .nav-bar {
-                top: 5px;
-                right: 5px;
-            }
-
             .nav-bar a {
                 font-size: 0.75rem;
                 margin: 0 5px;
             }
         }
     </style>
+
+    <script>
+        // Función para manejar el login
+        function handleLogin(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            // Obtener los valores ingresados por el usuario
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verificar las credenciales
+            if (username === 'Rodrigo1' && password === 'Rodrigo1') {
+                // Si las credenciales son correctas, redirigir a la página de inicio
+                window.location.href = 'index.html';
+            } else {
+                // Si las credenciales son incorrectas, mostrar un mensaje de error
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'Usuario o contraseña incorrectos. Intente nuevamente.';
+            }
+        }
+    </script>
 </head>
 <body>
-    
+
+    <!-- Barra de navegación fija -->
+    <div class="nav-bar">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#acerca-de">Acerca de</a>
+        <a href="index.html#contacto">Contacto</a>
+    </div>
 
     <!-- Fondo borroso -->
     <div class="blur-background"></div>
@@ -170,7 +184,7 @@
     <!-- Contenedor del formulario de login -->
     <div class="login-container">
         <h2>Login</h2>
-        <form action="/login" method="POST">
+        <form onsubmit="handleLogin(event)">
             <label for="username">Usuario</label>
             <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
 
@@ -179,33 +193,10 @@
 
             <button type="submit">Ingresar</button>
         </form>
-        <a href="/register" class="register-link">Recuperar contraseña</a>
+
+        <!-- Mensaje de error -->
+        <div id="error-message" class="error-message"></div>
     </div>
-
-    <!-- Barra de navegación -->
-    <div class="nav-bar">
-        <a href="index.html#home">Home</a>
-        <a href="index.html#acerca-de">Acerca de</a>
-        <a href="index.html#contacto">Contacto</a>
-    </div>
-
-    <!-- Secciones -->
-    <section id="home">
-        <h1>Inicio</h1>
-        <p>Contenido de la sección de inicio.</p>
-    </section>
-
-    <section id="acerca-de">
-        <h1>Acerca de</h1>
-        <p>Contenido de la sección acerca de.</p>
-    </section>
-
-    <section id="contacto">
-        <h1>Contacto</h1>
-        <p>Contenido de la sección de contacto.</p>
-    </section>
-
-
 
 </body>
 </html>
