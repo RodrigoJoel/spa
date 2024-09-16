@@ -137,7 +137,7 @@
                           return horasValidas;
                         }
                       
-                        // Obtener las horas válidas para cada día
+                        // Obtiene las horas válidas para cada día
                         const horasValidasLunesAViernes = generarHorasValidas(9, 19, 30);
                         const horasValidasSabadoDomingo = generarHorasValidas(9, 11, 30);
                       
@@ -149,13 +149,13 @@
                       
                         // Función para actualizar el atributo "list" del input
                         function actualizarOpciones(horasValidas) {
-                          // Eliminar el datalist existente si hay uno
+                          // Elimina el datalist existente si hay uno
                           const existingDatalist = document.getElementById('horasValidas');
                           if (existingDatalist) {
                             existingDatalist.remove();
                           }
                       
-                          // Crear y agregar un nuevo datalist
+                          // Crea y agrega un nuevo datalist
                           const datalist = document.createElement('datalist');
                           datalist.id = 'horasValidas';
                           horasValidas.forEach(hora => {
@@ -184,7 +184,7 @@
                           actualizarHoras(); // Actualiza las opciones de hora al cambiar la fecha
                         }
                       
-                        // Inicializar el datalist al cargar la página
+                        // Inicializa el datalist al cargar la página
                         actualizarHoras();
                       </script>
 
@@ -255,13 +255,13 @@
     const fechaInput = document.getElementById('fecha');
     const horaInput = document.getElementById('hora');
     
-    // Establecer la fecha mínima permitida en el campo de fecha
+    // Establece la fecha mínima permitida en el campo de fecha
     const today = new Date();
     const minDate = new Date(today);
     minDate.setDate(today.getDate() + 3); // Cuarto día desde hoy
     fechaInput.setAttribute('min', minDate.toISOString().split('T')[0]);
   
-    // Manejar el envío del formulario
+    // Maneja el envío del formulario
     document.getElementById('booking-form').addEventListener('submit', function(event) {
       const selectedDate = new Date(fechaInput.value);
       const selectedTime = horaInput.value;
@@ -269,7 +269,7 @@
   
       const [hours, minutes] = selectedTime.split(':').map(Number);
   
-      // Validar la hora según el día seleccionado
+      // Valida la hora según el día seleccionado
       if (selectedDay >= 1 && selectedDay <= 5) {
         // Lunes a viernes: 9:00 am - 8:00 pm
         if (hours < 9 || hours > 20 || (hours === 20 && minutes > 0)) {
@@ -292,12 +292,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const fechaInput = document.getElementById('fecha');
   const horaInput = document.getElementById('hora');
 
-  // Manejar el cambio en el campo de fecha para actualizar el campo de hora
+  // Maneja el cambio en el campo de fecha para actualizar el campo de hora
   fechaInput.addEventListener('change', function() {
     validateHour();
   });
 
-  // Manejar el cambio en el campo de hora
+  // Maneja el cambio en el campo de hora
   horaInput.addEventListener('change', function() {
     validateHour();
   });
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const selectedDate = new Date(fechaInput.value);
     const selectedTime = horaInput.value;
 
-    if (!selectedDate || !selectedTime) return; // Esperar a que ambos campos estén llenos
+    if (!selectedDate || !selectedTime) return; // Espera a que ambos campos estén llenos
 
     const selectedDay = selectedDate.getDay(); // 0: Domingo, 1: Lunes, ..., 6: Sábado
     const [hours, minutes] = selectedTime.split(':').map(Number);
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!isValid) {
       alert('La hora seleccionada no está dentro del rango permitido para el día seleccionado.');
-      horaInput.value = ''; // Limpiar el campo de hora
+      horaInput.value = ''; // Limpia el campo de hora
     }
   }
 });
@@ -356,21 +356,21 @@ document.addEventListener('DOMContentLoaded', function() {
       maxTime = '22:00';
     }
 
-    // Establecer los valores de min y max en el campo de hora
+    // Establece los valores de min y max en el campo de hora
     horaInput.setAttribute('min', minTime);
     horaInput.setAttribute('max', maxTime);
 
-    // Verificar y ajustar la hora actual si está fuera del rango permitido
+    // Verifica y ajusta la hora actual si está fuera del rango permitido
     const currentTime = horaInput.value;
     if (currentTime && (currentTime < minTime || currentTime > maxTime)) {
       horaInput.value = ''; // Limpiar el campo de hora si está fuera del rango
     }
   }
 
-  // Llamar a la función cuando se cambia la fecha
+  // Llama a la función cuando se cambia la fecha
   fechaInput.addEventListener('change', adjustTimeLimits);
 
-  // Llamar a la función inicialmente para establecer los límites correctos si ya hay una fecha seleccionada
+  // Llama a la función inicialmente para establecer los límites correctos si ya hay una fecha seleccionada
   adjustTimeLimits();
 });
 </script>
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <p class="u-text">
       <span>© 2024 Grupo 25. Todos los derechos reservados. </span>
       
-        <span>Grupo25</span>
+        <span></span>
       </a>
     </p>
   </section>
